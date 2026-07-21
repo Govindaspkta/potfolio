@@ -1,0 +1,496 @@
+/* =====================================================
+   GLOBAL CSS
+   Govinda Sapkota Portfolio
+===================================================== */
+
+:root {
+
+  /* ===========================
+     COLORS
+  =========================== */
+
+  --bg-primary: #070B14;
+  --bg-secondary: #101827;
+  --bg-card: #151C2E;
+  --bg-card-hover: #1B2438;
+
+  --border: #273248;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+
+  --secondary: #8B5CF6;
+
+  --success: #22C55E;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+
+  /* ===========================
+     TYPOGRAPHY
+  =========================== */
+
+  --font-sans:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  /* ===========================
+     LAYOUT
+  =========================== */
+
+  --container-width: 1240px;
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* ===========================
+     EFFECTS
+  =========================== */
+
+  --transition: all .35s ease;
+
+  --shadow-sm:
+    0 10px 30px rgba(0,0,0,.18);
+
+  --shadow-lg:
+    0 25px 70px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+body{
+
+  background:var(--bg-primary);
+
+  color:var(--text-primary);
+
+  font-family:var(--font-sans);
+
+  line-height:1.7;
+
+  overflow-x:hidden;
+
+  -webkit-font-smoothing:antialiased;
+
+  text-rendering:optimizeLegibility;
+
+}
+
+/* ===========================
+   GLOBAL BACKGROUND
+=========================== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(59,130,246,.12),
+transparent 35%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(139,92,246,.10),
+transparent 35%
+);
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.03) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.03) 1px,
+transparent 1px
+);
+
+background-size:60px 60px;
+
+mask-image:radial-gradient(circle,black 55%,transparent 100%);
+
+z-index:-1;
+
+opacity:.35;
+
+}
+
+/* ===========================
+   TYPOGRAPHY
+=========================== */
+
+h1{
+
+font-size:clamp(3rem,6vw,5rem);
+
+font-weight:800;
+
+line-height:1.05;
+
+letter-spacing:-2px;
+
+}
+
+h2{
+
+font-size:clamp(2.2rem,5vw,3.5rem);
+
+font-weight:700;
+
+line-height:1.15;
+
+}
+
+h3{
+
+font-size:1.8rem;
+
+font-weight:700;
+
+}
+
+h4{
+
+font-size:1.3rem;
+
+font-weight:600;
+
+}
+
+p{
+
+font-size:1.05rem;
+
+line-height:1.9;
+
+color:var(--text-secondary);
+
+}
+
+/* ===========================
+   LINKS
+=========================== */
+
+a{
+
+text-decoration:none;
+
+color:var(--primary);
+
+transition:var(--transition);
+
+}
+
+a:hover{
+
+color:var(--secondary);
+
+}
+
+/* ===========================
+   IMAGES
+=========================== */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/* ===========================
+   LIST
+=========================== */
+
+ul{
+
+list-style:none;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+border:none;
+
+outline:none;
+
+transition:var(--transition);
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input,
+textarea{
+
+font-family:inherit;
+
+outline:none;
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+width:min(100% - 2rem,var(--container-width));
+
+margin-inline:auto;
+
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+section{
+
+padding:110px 0;
+
+position:relative;
+
+}
+
+/* ===========================
+   GLASS CARD
+=========================== */
+
+.glass{
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border-radius:var(--radius-lg);
+
+box-shadow:var(--shadow-lg);
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:var(--bg-primary);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--primary);
+
+border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:var(--secondary);
+
+}
+
+/* ===========================
+   TEXT SELECTION
+=========================== */
+
+::selection{
+
+background:var(--primary);
+
+color:white;
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes pulse{
+
+0%,100%{
+
+opacity:1;
+
+}
+
+50%{
+
+opacity:.6;
+
+}
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:992px){
+
+section{
+
+padding:90px 0;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.container{
+
+width:min(100% - 1.5rem,var(--container-width));
+
+}
+
+h1{
+
+font-size:3rem;
+
+}
+
+h2{
+
+font-size:2.3rem;
+
+}
+
+section{
+
+padding:75px 0;
+
+}
+
+}
+
+@media (max-width:480px){
+
+h1{
+
+font-size:2.5rem;
+
+}
+
+h2{
+
+font-size:2rem;
+
+}
+
+p{
+
+font-size:1rem;
+
+}
+
+}

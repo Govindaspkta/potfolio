@@ -1,0 +1,430 @@
+.about {
+  padding: 7rem 0;
+  background: #0d0f12;
+}
+
+.about .container {
+  padding: 0 1.5rem;
+}
+
+/* ==================== HERO SECTION ==================== */
+.about-hero {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.about-intro h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #c7cacc;
+}
+
+.about-intro p {
+  font-size: 1.2rem;
+  color: #9399a3;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==================== PROFILE SECTION ==================== */
+.about-profile {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 5rem;
+  padding: 3rem 2rem;
+  background: rgba(21, 25, 31, 0.5);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(45, 49, 57, 0.5);
+}
+
+.profile-image {
+  position: relative;
+}
+
+.profile-image img {
+  width: 280px;
+  height: 280px;
+  border-radius: 1.5rem;
+  border: 2px solid #c91b68;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.profile-image img:hover {
+  border-color: #809fff;
+  box-shadow: 0 15px 50px rgba(201, 27, 104, 0.2);
+}
+
+.profile-text h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #c7cacc;
+}
+
+.profile-text .role {
+  color: #c91b68;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-text .bio {
+  color: #9399a3;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+/* ==================== STATS SECTION ==================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 5rem;
+}
+
+.stat-card {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(201, 27, 104, 0.05), rgba(128, 159, 255, 0.05));
+  border: 1px solid rgba(45, 49, 57, 0.5);
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: #c91b68;
+  background: rgba(201, 27, 104, 0.1);
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c91b68;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #9399a3;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== TIMELINE SECTION ==================== */
+.timeline-section {
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #c7cacc;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #c91b68, #809fff);
+  border-radius: 2px;
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #c91b68, #809fff, transparent);
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  width: 100%;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  text-align: right;
+  padding-right: 52%;
+}
+
+.timeline-item:nth-child(even) {
+  text-align: left;
+  padding-left: 52%;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #c91b68;
+  border: 3px solid #0d0f12;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  width: 24px;
+  height: 24px;
+  background: #809fff;
+  box-shadow: 0 0 20px rgba(128, 159, 255, 0.4);
+}
+
+.timeline-content {
+  padding: 1.5rem;
+  background: rgba(21, 25, 31, 0.6);
+  border: 1px solid rgba(45, 49, 57, 0.5);
+  border-radius: 0.75rem;
+}
+
+.timeline-year {
+  color: #c91b68;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.timeline-content h4 {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  color: #c7cacc;
+}
+
+.timeline-content p {
+  color: #9399a3;
+  margin-top: 0.5rem;
+}
+
+/* ==================== PHILOSOPHY SECTION ==================== */
+.philosophy-section {
+  margin-bottom: 5rem;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.philosophy-card {
+  padding: 2rem;
+  background: rgba(21, 25, 31, 0.6);
+  border: 1px solid rgba(45, 49, 57, 0.5);
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.philosophy-card:hover {
+  border-color: #c91b68;
+  background: rgba(201, 27, 104, 0.08);
+}
+
+.philosophy-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.philosophy-card h4 {
+  color: #c7cacc;
+  margin-bottom: 0.75rem;
+}
+
+.philosophy-card p {
+  color: #9399a3;
+  font-size: 0.95rem;
+}
+
+/* ==================== FUN FACTS SECTION ==================== */
+.funfacts-section {
+  margin-bottom: 5rem;
+}
+
+.funfacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.funfact-item {
+  padding: 1.75rem;
+  background: rgba(21, 25, 31, 0.6);
+  border: 1px solid rgba(201, 27, 104, 0.2);
+  border-radius: 0.75rem;
+  color: #c7cacc;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.funfact-item:hover {
+  border-color: #c91b68;
+  background: rgba(201, 27, 104, 0.1);
+  transform: translateX(4px);
+}
+
+/* ==================== CURRENT FOCUS SECTION ==================== */
+.current-focus {
+  padding: 3rem;
+  background: rgba(21, 25, 31, 0.6);
+  border: 1px solid rgba(45, 49, 57, 0.5);
+  border-radius: 1.5rem;
+}
+
+.current-focus h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #c7cacc;
+}
+
+.focus-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.focus-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(13, 15, 18, 0.5);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.focus-item:hover {
+  background: rgba(201, 27, 104, 0.08);
+  transform: translateX(4px);
+}
+
+.focus-emoji {
+  font-size: 2rem;
+  min-width: 50px;
+}
+
+.focus-item h4 {
+  color: #c7cacc;
+  margin-bottom: 0.25rem;
+}
+
+.focus-item p {
+  color: #9399a3;
+  font-size: 0.95rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .about-profile {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 60px !important;
+    text-align: left !important;
+  }
+
+  .timeline-dot {
+    left: 20px;
+  }
+
+  .timeline-content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 0;
+  }
+
+  .about-intro h2 {
+    font-size: 2.5rem;
+  }
+
+  .about-profile {
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .profile-image img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .profile-text h3 {
+    font-size: 1.75rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline::before {
+    left: 16px;
+  }
+
+  .timeline-dot {
+    left: 16px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .funfacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-intro h2 {
+    font-size: 2rem;
+  }
+
+  .profile-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
