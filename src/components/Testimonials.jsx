@@ -4,28 +4,28 @@ import "./Testimonials.css";
 
 const testimonials = [
   {
-    name: "Rajesh Sharma",
-    role: "CTO, TechVision",
+    name: "Kiran Adhikari",
+    role: "Lecturer & AI Instructor",
     image: "/images/client1.jpg", // replace with real images
-    text: "Govinda is an exceptional backend engineer. He built a robust CRM system that scaled seamlessly and reduced our processing time by 60%.",
+    text: "Govinda built a CRM backend that scaled without a hitch. His grasp of Django and clean API design stood out immediately.",
     rating: 5,
-    company: "TechVision"
+    company: ""
   },
   {
-    name: "Anita Patel",
-    role: "Product Manager, Nexus Labs",
+    name: "Sabina Rai",
+    role: "Startup Founder",
     image: "/images/client2.jpg",
-    text: "Working with Govinda was a pleasure. His expertise in Django and PostgreSQL helped us deliver a complex project ahead of schedule.",
+    text: "He delivered a complex PostgreSQL-backed system ahead of schedule and communicated clearly at every step.",
     rating: 5,
-    company: "Nexus Labs"
+    company: ""
   },
   {
-    name: "Suresh Khadka",
-    role: "Founder, SmartFlow",
+    name: "Prakash Shrestha",
+    role: "Civil Engineer",
     image: "/images/client3.jpg",
-    text: "Govinda's deep understanding of scalable architecture and clean code made him invaluable to our startup. Highly recommended!",
+    text: "Reliable, detail-oriented, and genuinely invested in getting the architecture right. Would work with him again.",
     rating: 5,
-    company: "SmartFlow"
+    company: ""
   }
 ];
 
@@ -71,7 +71,7 @@ export default function Testimonials() {
                 <div>
                   <h4>{testimonial.name}</h4>
                   <p>{testimonial.role}</p>
-                  <span>{testimonial.company}</span>
+                  {testimonial.company && <span>{testimonial.company}</span>}
                 </div>
               </div>
             </motion.div>
