@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { playSound } from '../utils/sounds'
 import './Projects.css'
 
@@ -5,131 +6,155 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Meor Fare',
-      description: 'Real-time ride-sharing system with Redis caching and Google OAuth',
-      tech: ['Django', 'React', 'PostgreSQL', 'Redis', 'Google Auth'],
-      status: 'In Progress',
-      link: '#',
-      github: '#'
+      title: 'Hamro Awaj',
+      description: 'Complaint management system for reporting and tracking issues',
+      tech: ['Django', 'React', 'PostgreSQL', 'Redis'],
+      status: 'Live',
+      link: 'https://complaint-mgmnt-sys.vercel.app/',
+      github: 'https://github.com/Govindaspkta/complaint-management-system',
+      icon: '📢'
     },
     {
       id: 2,
       title: 'CRM System',
-      description: 'Complete Customer Relationship Management built during internship',
+      description: 'Enterprise Customer Relationship Management built during internship',
       tech: ['Django', 'React', 'PostgreSQL', 'DRF'],
-      status: 'Completed',
+      status: 'Live',
       link: 'https://crm.autonomoustechnology.net/',
-      isExternal: true
+      github: '#',
+      icon: '💼'
     },
     {
       id: 3,
       title: 'Stock Prediction Portal',
       description: 'AI-powered stock prediction with data analysis and visualization',
-      tech: ['Jupyter', 'Django', 'React', 'ML'],
-      status: 'Completed',
+      tech: ['Jupyter', 'Django', 'React', 'Pandas', 'ML'],
+      status: 'Complete',
       link: 'https://github.com/Govindaspkta/stock-prediction-portal',
       github: 'https://github.com/Govindaspkta/stock-prediction-portal',
-      isExternal: true
+      icon: '📈'
     },
     {
       id: 4,
       title: 'Travelling App',
-      description: 'Simple travel booking application with Django templates',
+      description: 'Travel booking application with Django templates and responsive design',
       tech: ['Django', 'HTML/CSS', 'SQLite', 'JavaScript'],
-      status: 'Completed',
+      status: 'Complete',
       link: 'https://github.com/Govindaspkta/Travel-Booking-Application',
       github: 'https://github.com/Govindaspkta/Travel-Booking-Application',
-      isExternal: true
+      icon: '✈️'
     },
     {
       id: 5,
       title: 'QuizMaster',
-      description: 'Interactive quiz system with real-time leaderboards and stats',
+      description: 'Interactive quiz system with real-time leaderboards and statistics',
       tech: ['Flask', 'React', 'Redis', 'PostgreSQL'],
-      status: 'Completed',
+      status: 'Complete',
       link: 'https://github.com/Govindaspkta/Quiz-Master',
       github: 'https://github.com/Govindaspkta/Quiz-Master',
-      isExternal: true
+      icon: '🎯'
     },
     {
       id: 6,
       title: 'Aetherix',
-      description: 'Complaints management system with JWT auth and Google OAuth',
+      description: 'Enterprise complaints management with JWT auth and advanced features',
       tech: ['Django REST', 'React', 'PostgreSQL', 'JWT'],
-      status: 'Completed',
+      status: 'Complete',
       link: '#',
-      github: '#'
+      github: '#',
+      icon: '🔧'
     }
   ]
-
-  const handleCardHover = () => {
-    playSound('hover')
-  }
-
-  const handleCardClick = () => {
-    playSound('click')
-  }
 
   return (
     <section className="projects" id="projects">
       <div className="container">
-        <h2>Featured Projects</h2>
-        <p className="projects-subtitle">6+ complete projects showcasing full-stack expertise</p>
-        
-        <div className="projects-grid">
+        <motion.div
+          className="projects-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2>Featured Projects</h2>
+          <p className="projects-subtitle">Full-stack applications showcasing backend engineering expertise</p>
+        </motion.div>
+
+        <motion.div
+          className="projects-grid"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
+        >
           {projects.map((project) => (
-            <div 
-              key={project.id} 
+            <motion.div
+              key={project.id}
               className="project-card"
-              onMouseEnter={handleCardHover}
-              onClick={handleCardClick}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              onMouseEnter={() => playSound('hover')}
+              onClick={() => playSound('click')}
+              whileHover={{ y: -8 }}
             >
-              <div className="project-front">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <span className={`status ${project.status.toLowerCase().replace(' ', '-')}`}>
+              <div className="project-icon">{project.icon}</div>
+
+              <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+
+                <div className={`status-badge status-${project.status.toLowerCase()}`}>
+                  {project.status === 'Live' && <span className="status-dot" />}
                   {project.status}
-                </span>
-              </div>
-              
-              <div className="project-back">
-                <h4>Tech Stack</h4>
-                <div className="tech-tags">
-                  {project.tech.map((t) => (
-                    <span key={t} className="tech-tag">{t}</span>
+                </div>
+
+                <div className="tech-stack">
+                  {project.tech.map(tech => (
+                    <span key={tech} className="tech-badge">{tech}</span>
                   ))}
                 </div>
-                <div className="project-links">
-                  {project.link !== '#' && (
-                    <a 
-                      href={project.link} 
-                      className="project-link"
-                      target={project.isExternal ? '_blank' : '_self'}
-                      rel={project.isExternal ? 'noopener noreferrer' : ''}
-                    >
-                      {project.link.includes('crm.') ? 'View Live' : 'GitHub Repo'}
-                    </a>
-                  )}
-                </div>
               </div>
-            </div>
-          ))}
-        </div>
 
-        <div className="projects-stats">
-          <div className="stat">
-            <h3>6+</h3>
-            <p>Projects Built</p>
+              <div className="project-links">
+                {project.link !== '#' && (
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="link-btn view-btn">
+                    {project.link.includes('vercel') || project.link.includes('.net') ? '🌐 Live' : '💻 Code'}
+                  </a>
+                )}
+                {project.github && project.github !== '#' && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-btn github-btn">
+                    ⭐ GitHub
+                  </a>
+                )}
+              </div>
+
+              <div className="project-accent" />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="projects-stats"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="projects-stat">
+            <div className="stat-value">6+</div>
+            <div className="stat-text">Projects Built</div>
           </div>
-          <div className="stat">
-            <h3>10+</h3>
-            <p>Technologies</p>
+          <div className="projects-stat">
+            <div className="stat-value">2</div>
+            <div className="stat-text">Live Products</div>
           </div>
-          <div className="stat">
-            <h3>4</h3>
-            <p>GitHub Repos</p>
+          <div className="projects-stat">
+            <div className="stat-value">4</div>
+            <div className="stat-text">GitHub Repos</div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

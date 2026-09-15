@@ -1,55 +1,73 @@
 import { motion } from 'framer-motion'
 import './About.css'
+import profileImg from "../assets/govinda_spkta.jpeg";  
+
 
 export default function About() {
-  // Timeline events
+  // Timeline events - Complete Journey
   const timeline = [
     {
-      year: '2021',
-      title: 'Started Learning',
-      desc: 'First line of Python code'
+      year: '2024 End',
+      title: 'Learned Java & Spring Boot',
+      desc: 'Enterprise backend frameworks, microservices',
+      type: 'milestone'
     },
     {
-      year: '2022',
-      title: 'Built First Backend',
-      desc: 'Django project deployed'
+      year: '2025',
+      title: 'Started Learning Python',
+      desc: 'First Python programming language, fundamentals',
+      type: 'milestone'
     },
     {
-      year: '2023',
-      title: 'Full Stack Journey',
-      desc: 'Added React to arsenal'
+      year: '2025',
+      title: 'College Projects',
+      desc: 'Building projects for coursework and learning',
+      type: 'college'
     },
     {
-      year: '2024',
-      title: 'Internship & Live Projects',
-      desc: 'CRM system in production'
+      year: '2025 Nov - 2026 Mar',
+      title: 'Internship at Autonomous Tech',
+      desc: 'Backend Developer - Built production CRM system with Django',
+      type: 'internship'
+    },
+    {
+      year: '2026',
+      title: 'Personal Projects',
+      desc: 'Hamro Awaj, Stock Prediction, Quiz Master, Travel App',
+      type: 'personal'
+    },
+    {
+      year: '2026 Now',
+      title: 'Mastering Backend & AI',
+      desc: 'Advanced Django, AI/ML integration, System Design',
+      type: 'achievement'
     }
   ]
 
   // Developer stats
   const stats = [
-    { number: '200+', label: 'Hours Coding Weekly' },
+    { number: '300+', label: 'Hours Coding Weekly' },
     { number: '6+', label: 'Production Projects' },
-    { number: '15+', label: 'Technologies' },
-    { number: '1', label: 'Live Product' }
+    { number: '22+', label: 'Technologies' },
+    { number: '2', label: 'Live Products' }
   ]
 
   // Dev philosophy
   const philosophy = [
-    { icon: '⚡', title: 'Clean Code', desc: 'Readable, maintainable, efficient' },
+    { icon: '⚡', title: 'Clean Code', desc: 'Readable, maintainable, efficient systems' },
+    { icon: '🤖', title: 'AI Integration', desc: 'Leveraging ML to solve problems' },
     { icon: '🔗', title: 'Scalability', desc: 'Systems that grow with demand' },
-    { icon: '🤝', title: 'Collaboration', desc: 'Shipping, not solo projects' },
-    { icon: '📚', title: 'Always Learning', desc: 'Staying ahead of the curve' }
+    { icon: '📚', title: 'Always Learning', desc: 'Latest tech & best practices' }
   ]
 
   // Fun facts
   const funFacts = [
-    '🐧 Linux enthusiast since 2022',
-    '☕ 3 cups of coffee = 1 feature completed',
-    '🎧 Lo-fi beats while debugging',
-    '🚀 Favorite error: "Works on my machine"',
-    '📖 Currently reading Clean Code',
-    '🎮 Indie game dev side projects'
+    '🐧 Linux enthusiast & command line wizard',
+    '☕ 3 cups of coffee = 1 production feature',
+    '🎧 Lo-fi beats while debugging at 2 AM',
+    '🚀 Favorite error: "Works perfectly on my machine"',
+    '🤖 Obsessed with AI/ML applications',
+    '📊 Data science & visualization enthusiast'
   ]
 
   const containerVariants = {
@@ -78,7 +96,7 @@ export default function About() {
         >
           <div className="about-intro">
             <h2>About My Journey</h2>
-            <p>From curious learner to full-stack developer building real products</p>
+            <p>From Java & Python learner to full-stack backend engineer mastering AI integration</p>
           </div>
         </motion.div>
 
@@ -91,15 +109,13 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <div className="profile-image">
-            <img src="https://via.placeholder.com/280" alt="Govinda Sapkota" />
+            <img src={profileImg} alt="Govinda Sapkota" />
           </div>
-          
           <div className="profile-text">
             <h3>Govinda Sapkota</h3>
-            <p className="role">Backend Developer & AI Enthusiast</p>
+            <p className="role">Backend Developer & AI/ML Enthusiast</p>
             <p className="bio">
-              Building robust systems and scalable backends. Final year BCA student at Madan Bhandari Memorial College. 
-              Interning at Autonomous Technology, shipping real products that solve real problems.
+             BCA student building scalable backend systems with modern technologies. Recently completed internship as Backend Developer at Autonomous Technology where I shipped a production CRM system. Currently mastering Backend development with AI/ML integration and data science.
             </p>
           </div>
         </motion.div>
@@ -124,7 +140,7 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Timeline Section */}
+        {/* Timeline Section - Enhanced */}
         <motion.div 
           className="timeline-section"
           initial={{ opacity: 0 }}
@@ -137,7 +153,7 @@ export default function About() {
             {timeline.map((item, i) => (
               <motion.div
                 key={i}
-                className="timeline-item"
+                className={`timeline-item timeline-${item.type}`}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -146,6 +162,7 @@ export default function About() {
                 <div className="timeline-dot" />
                 <div className="timeline-content">
                   <span className="timeline-year">{item.year}</span>
+                  <div className="timeline-type-badge">{item.type}</div>
                   <h4>{item.title}</h4>
                   <p>{item.desc}</p>
                 </div>
@@ -221,27 +238,27 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h3>Currently</h3>
+          <h3>Currently Focused On</h3>
           <div className="focus-items">
             <div className="focus-item">
-              <span className="focus-emoji">📖</span>
+              <span className="focus-emoji">🤖</span>
               <div>
-                <h4>Learning</h4>
-                <p>Advanced Django patterns, AI/ML applications</p>
+                <h4>AI/ML Integration</h4>
+                <p>Building intelligent backend systems with TensorFlow, scikit-learn</p>
               </div>
             </div>
             <div className="focus-item">
-              <span className="focus-emoji">💼</span>
+              <span className="focus-emoji">⚡</span>
               <div>
-                <h4>Working On</h4>
-                <p>CRM system at Autonomous Technology</p>
+                <h4>Backend Mastery</h4>
+                <p>FastAPI, Django, React, databases, caching strategies</p>
               </div>
             </div>
             <div className="focus-item">
-              <span className="focus-emoji">🚀</span>
+              <span className="focus-emoji">🎯</span>
               <div>
-                <h4>Building</h4>
-                <p>Multiple full-stack projects for portfolio</p>
+                <h4>Seeking Opportunities</h4>
+                <p>Full-time Backend / Freelancing</p>
               </div>
             </div>
           </div>

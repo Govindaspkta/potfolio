@@ -69,7 +69,7 @@ export default function Contact() {
 
         <div className="contact-socials">
           <a href="#" className="social-link" onMouseEnter={() => playSound('hover')}>GitHub</a>
-          <a href="#" className="social-link" onMouseEnter={() => playSound('hover')}>LinkedIn</a>
+          <a href="www.linkedin.com/in/govinda-sapkota" className="social-link" onMouseEnter={() => playSound('hover')}>LinkedIn</a>
           <a href="#" className="social-link" onMouseEnter={() => playSound('hover')}>Twitter</a>
         </div>
       </div>
