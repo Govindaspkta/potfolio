@@ -49,7 +49,7 @@ export default function Hero() {
             <button className="hero-btn-primary" onClick={handleProjects}>
               Explore Projects <ArrowRight size={18} />
             </button>
-            <a href="/resume.pdf" className="hero-btn-secondary" download>
+            <a href="/Govinda_sapkota_Resume.pdf" className="hero-btn-secondary" download>
               <Download size={18} /> Resume
             </a>
           </motion.div>

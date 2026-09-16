@@ -185,7 +185,7 @@ export default function Skills() {
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <div className="stat-number">6+</div>
+            <div className="stat-number">8+</div>
             <div className="stat-label">Projects Built</div>
           </div>
         </motion.div>

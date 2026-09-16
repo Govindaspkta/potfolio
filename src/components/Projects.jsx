@@ -56,13 +56,34 @@ export default function Projects() {
     },
     {
       id: 6,
-      title: 'Aetherix',
-      description: 'Enterprise complaints management with JWT auth and advanced features',
-      tech: ['Django REST', 'React', 'PostgreSQL', 'JWT'],
+      title: 'Online Book Store',
+      description: 'E-commerce book store with inventory management and user authentication',
+      tech: ['PHP', 'HTML/CSS', 'MySQL', 'JavaScript'],
       status: 'Complete',
       link: '#',
       github: '#',
-      icon: '🔧'
+      icon: '📚'
+    }
+  ]
+
+  const stats = [
+    {
+      icon: '🚀',
+      number: '8+',
+      label: 'Projects Built',
+      description: 'Full-stack applications'
+    },
+    {
+      icon: '🌐',
+      number: '2',
+      label: 'Live Products',
+      description: 'In production now'
+    },
+    {
+      icon: '⭐',
+      number: '20',
+      label: 'GitHub Repos',
+      description: 'Open source & projects'
     }
   ]
 
@@ -135,24 +156,37 @@ export default function Projects() {
           ))}
         </motion.div>
 
+        {/* Enhanced Stats Section */}
         <motion.div
-          className="projects-stats"
+          className="projects-stats-wrapper"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="projects-stat">
-            <div className="stat-value">6+</div>
-            <div className="stat-text">Projects Built</div>
+          <div className="stats-intro">
+            <h3>My Impact</h3>
+            <p>Metrics that showcase my journey and dedication</p>
           </div>
-          <div className="projects-stat">
-            <div className="stat-value">2</div>
-            <div className="stat-text">Live Products</div>
-          </div>
-          <div className="projects-stat">
-            <div className="stat-value">4</div>
-            <div className="stat-text">GitHub Repos</div>
+
+          <div className="projects-stats">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="projects-stat"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="stat-icon">{stat.icon}</div>
+                <div className="stat-value">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+                <div className="stat-description">{stat.description}</div>
+                <div className="stat-glow" />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

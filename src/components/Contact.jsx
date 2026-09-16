@@ -1,6 +1,10 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { playSound } from '../utils/sounds'
 import './Contact.css'
+
+emailjs.init('P3WrhznaY4EfsT1eH')
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,6 +12,10 @@ export default function Contact() {
     email: '',
     message: ''
   })
+  
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormData({
@@ -20,20 +28,55 @@ export default function Contact() {
     playSound('hover')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    playSound('success')
-    alert('Message sent! (This is a demo)')
-    setFormData({ name: '', email: '', message: '' })
+    setLoading(true)
+    setError('')
+
+    try {
+      await emailjs.send('service_wf1dt7q', 'template_48x87yn', {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      })
+
+      playSound('success')
+      setSuccess(true)
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setSuccess(false), 5000)
+    } catch (err) {
+      console.error('Error:', err)
+      setError('Failed to send message')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <h2>Get In Touch</h2>
-        <p className="contact-subtitle">Have a project or question? Let's connect!</p>
-        
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <motion.div
+          className="contact-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2>Get In Touch</h2>
+          <p className="contact-subtitle">Have a project or question? Let's connect!</p>
+        </motion.div>
+
+        {success && <div className="success-message">✅ Message sent successfully!</div>}
+        {error && <div className="error-message">❌ {error}</div>}
+
+        <motion.form
+          className="contact-form"
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <input
             type="text"
             name="name"
@@ -42,8 +85,9 @@ export default function Contact() {
             onChange={handleChange}
             onFocus={handleFocus}
             required
+            disabled={loading}
           />
-          
+
           <input
             type="email"
             name="email"
@@ -52,8 +96,9 @@ export default function Contact() {
             onChange={handleChange}
             onFocus={handleFocus}
             required
+            disabled={loading}
           />
-          
+
           <textarea
             name="message"
             placeholder="Your Message"
@@ -62,16 +107,14 @@ export default function Contact() {
             onChange={handleChange}
             onFocus={handleFocus}
             required
-          ></textarea>
-          
-          <button type="submit" className="btn-submit">Send Message</button>
-        </form>
+            disabled={loading}
+          />
 
-        <div className="contact-socials">
-          <a href="#" className="social-link" onMouseEnter={() => playSound('hover')}>GitHub</a>
-          <a href="www.linkedin.com/in/govinda-sapkota" className="social-link" onMouseEnter={() => playSound('hover')}>LinkedIn</a>
-          <a href="#" className="social-link" onMouseEnter={() => playSound('hover')}>Twitter</a>
-        </div>
+          <button type="submit" className="btn-submit" disabled={loading}>
+            {loading ? 'Sending...' : '✉️ Send Message'}
+          </button>
+        </motion.form>
+
       </div>
     </section>
   )

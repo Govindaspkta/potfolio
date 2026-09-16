@@ -4,28 +4,28 @@ import "./Testimonials.css";
 
 const testimonials = [
   {
-    name: "Kiran Adhikari",
-    role: "Lecturer & AI Instructor",
-    image: "/images/client1.jpg", // replace with real images
+    name: "Dipesh Koirala",
+    role: "Instructor, Lecturer & AI Engineer",
+    image: "/images/client1.jpg",
     text: "Govinda built a CRM backend that scaled without a hitch. His grasp of Django and clean API design stood out immediately.",
     rating: 5,
     company: ""
   },
   {
-    name: "Sabina Rai",
-    role: "Startup Founder",
+    name: "Prakash Adhikari",
+    role: "Lecturer",
     image: "/images/client2.jpg",
     text: "He delivered a complex PostgreSQL-backed system ahead of schedule and communicated clearly at every step.",
     rating: 5,
     company: ""
   },
   {
-    name: "Prakash Shrestha",
-    role: "Civil Engineer",
+    name: "Aarav Sharma",
+    role: "Startup Founder",
     image: "/images/client3.jpg",
     text: "Reliable, detail-oriented, and genuinely invested in getting the architecture right. Would work with him again.",
     rating: 5,
-    company: ""
+    company: "TechNova Solutions"
   }
 ];
 
@@ -67,7 +67,6 @@ export default function Testimonials() {
               </div>
 
               <div className="testimonial-author">
-                <img src={testimonial.image} alt={testimonial.name} className="author-img" />
                 <div>
                   <h4>{testimonial.name}</h4>
                   <p>{testimonial.role}</p>
